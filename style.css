@@ -10,9 +10,11 @@
     src: url('./font/Lobster-Regular.ttf');
     font-family: "Lobster";
 }
-
+:root {
+  color-scheme: light; /* Запрещает iPhone принудительно перекрашивать сайт в тёмные тона */
+}
 body {
-    background-color: #dff0e7;
+    background-color: #dff0e7!important;;
     text-align: center;
     margin: 0 auto;
     padding: 0;
