@@ -308,6 +308,7 @@ img{
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards 0.5s;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     color: black;
 }
 .sviz:hover {
     transform: scale(1.08) translateY(-3px);
@@ -327,6 +328,7 @@ img{
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards 0.7s;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     color: black;
 }
 .bron:hover {
     transform: scale(1.08) translateY(-3px);
