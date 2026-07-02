@@ -1,0 +1,1091 @@
+@font-face{
+    src: url('./font/Jura.ttf');
+    font-family: "Jura";
+}
+@font-face{
+    src: url('./font/jura-bold.ttf');
+    font-family: "Jura bold";
+}
+@font-face {
+    src: url('./font/Lobster-Regular.ttf');
+    font-family: "Lobster";
+}
+
+body {
+    background-color: #dff0e7;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* ===== ЭКРАН ЗАГРУЗКИ (НЕ ТРОГАЕМ) ===== */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #dff0e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+#preloader.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.loader-content {
+    text-align: center;
+}
+.paw-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: fixed;
+    bottom: 30vh;
+    left: 30vw;
+    gap: 15px;
+}
+.paw1, .paw2, .paw3, .paw4 {
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: inline-block;
+    animation: runDiagonal 2.5s ease-in-out infinite;
+    transform-origin: center;
+}
+.paw1 {
+    animation-delay: 0s;
+    margin-left: 1vw;
+    transform: rotate(-20deg);
+}
+.paw2 {
+    animation-delay: 0.4s;
+    margin-left: 2vw;
+    transform: rotate(-20deg);
+}
+.paw3 {
+    animation-delay: 0.8s;
+    margin-left: 1vw;
+    margin-bottom: 10vw;
+    transform: rotate(-20deg);
+}
+.paw4 {
+    animation-delay: 1.2s;
+    margin-left: 2vw;
+    margin-bottom: 10vw;
+    transform: rotate(-20deg);
+}
+@keyframes runDiagonal {
+    0% {
+        transform: translate(0px, 0px) rotate(-20deg);
+    }
+    10% {}
+    50% {
+        transform: translate(120px, -90px) rotate(-25deg);
+    }
+    90% {}
+    100% {
+        transform: translate(240px, -180px) rotate(0deg);
+    }
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.burger {
+    display: block;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 9999;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+}
+.burger span {
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: black;
+    margin: 2px 0;
+    transition: 0.3s;
+}
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -5px);
+}
+#nav {
+    display: none !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: white;
+    padding: 80px 30px 30px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    z-index: 9998;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+}
+#nav.active {
+    display: flex !important;
+}
+#nav a button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.7vw;
+    border: none;
+    cursor: pointer;
+    position: static !important;
+    background: none;
+    font-family: "Jura bold";
+    font-weight: bold;
+    margin-top: 2vw;
+
+}
+#nav a button:hover {
+    background: #d9d9d9;
+    border-radius: 30px;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+}
+
+/* ===== АНИМАЦИИ ДЛЯ ЗАГОЛОВКОВ ===== */
+h1 {
+    font-size: 7vw;
+    font-weight: bold;
+    margin: -3vw 0;
+    font-family: "Lobster";
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeInDown 1.2s ease forwards 0.3s;
+}
+
+h2 {
+    font-size: 3.2vw;
+    text-align: center;
+    font-family: 'Lobster';
+    position: relative;
+    top: 1vw;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.5s;
+}
+
+/* ===== АНИМАЦИИ ДЛЯ КАРТИНОК В ХЕДЕРЕ ===== */
+.dog{
+    width: 23vw;
+    height: auto;
+    position: relative;
+    right: 3vw;
+    top: 7.3vw;
+    opacity: 0;
+    animation: slideFromLeft 1.2s ease forwards 0.6s;
+}
+.bowl1{
+    width: 7vw;
+    height: 4vw;
+    position: relative;
+    right: 5vw;
+    top: 7vw;
+    z-index: 10;
+    opacity: 0;
+    animation: popIn 0.8s ease forwards 0.9s;
+}
+.bone{
+    width: 4vw;
+    height: 4vw;
+    position: relative;
+    right: 10.5vw;
+    top: 5.5vw;
+    z-index: 0;
+    /* opacity: 0; */
+    animation: floatBone 2s ease-in-out infinite;
+}
+.bowl2{
+    width: 7vw;
+    height: 4vw;
+    position: relative;
+    right: 20vw;
+    top: 7vw;
+    opacity: 0;
+    animation: popIn 0.8s ease forwards 1s;
+}
+.fish{
+    width: 4vw;
+    height: 4vw;
+    position: relative;
+    right: 15vw;
+    top: 6vw;
+    /* z-index: 1; */
+    /* opacity: 0; */
+    animation: floatBone 2.5s ease-in-out infinite;
+}
+.cat{
+    width: 18vw;
+    height: auto;
+    position: relative;
+    left: 7vw;
+    top: 7vw;
+    opacity: 0;
+    animation: slideFromRight 1.2s ease forwards 0.7s;
+}
+
+/* ===== АНИМАЦИЯ ДЛЯ ТЕКСТА ===== */
+.about {
+    width: 80vw;
+    margin: 0 auto;
+    font-size: 1.9vw;
+    line-height: 1.5;
+    font-family: "Jura";
+    position: relative;
+    top: 10vw;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.8s;
+}
+
+/* ===== АНИМАЦИЯ ДЛЯ БЛОКА С НОМЕРАМИ ===== */
+.rooms {
+    font-size: 3vw;
+    font-family: "Lobster";
+    font-weight: 400;
+    margin-top: 13vw;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.3s;
+}
+
+.nomera{
+    width: 46vw;
+    margin: 0 auto;
+    font-size: 1.9vw;
+    line-height: 1.5;
+    font-family: "Jura";
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.6s;
+}
+
+/* ===== АНИМАЦИИ ДЛЯ КНОПОК ===== */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 3vw;
+    margin: 1.5vw 0;
+}
+.buttons button {
+    border: none;
+    border-radius: 3vw;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #d9d9d9;
+    height: 2.5vw;
+    width: 13vw;
+    top: 2vw;
+    position: relative;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.5s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.buttons button:hover {
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+.buttons button:nth-child(2) {
+    animation-delay: 0.7s;
+}
+.p{
+    font-size: 1.5vw;
+    text-align: center; 
+    margin-top: 0.2vw;
+    font-family: "Jura";
+}
+
+/* ===== КОТ И СОБАКА С ДВИЖЕНИЕМ ===== */
+.dog2{
+    position: relative;
+    right: 37vw;
+    bottom: 22vw;
+    width: 15vw;
+    height: auto;
+    opacity: 0;
+    animation: slideFromLeft 1.2s ease forwards 1s, dogWag 3s ease-in-out infinite 2.2s;
+}
+
+.cat2{
+    position: absolute;
+    top: 104vw;
+    right: 2vw;
+    width: 18vw;
+    height: auto;
+    z-index: 10;
+    opacity: 0;
+    animation: slideFromRight 1.2s ease forwards 1.2s, catSit 4s ease-in-out infinite 2.5s;
+}
+
+/* ===== АНИМАЦИЯ ДЛЯ АДРЕСА И КАРТЫ ===== */
+.adres {
+    font-size: 3vw;
+    font-family: "Lobster";
+    font-weight: 400;
+    position: relative;
+    top: -10vw;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.5s;
+}
+.gorod{
+    font-size: 1.5vw;
+    font-family: "Jura";
+    font-weight: 400;
+    position: relative;
+    bottom: 10vw;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.8s;
+}
+iframe {
+    margin: 0 auto;
+    position: relative;
+    bottom: 8vw;
+    width: 90vw; 
+    height: 60vh; 
+    border: 0;
+    opacity: 0;
+    animation: fadeInUp 1.2s ease forwards 1s;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: rgba(105, 105, 105, 0.47);
+    height: auto;
+    position: relative;
+}
+.socials img {
+    margin: 0 0.5vw;
+    position: relative;
+    top: 2.5vw;
+    transition: transform 0.3s ease;
+}
+.socials img:hover {
+    transform: scale(1.2) rotate(-5deg);
+}
+.tg{
+    width: 3vw;
+}
+.wt{
+    width: 2.9vw;
+}
+.alo{
+    position: relative;
+    font-family: "Jura";
+    font-weight: 400;
+    left: 87vw;
+    bottom: 7vw;    
+    margin-top: 2vw;
+    font-size: 1.3vw;
+    width: 10vw;
+    height: 3vw;
+}
+.phone {
+    width: 5vw;
+    position: relative;
+    bottom: 3.5vw;
+    right: 5vw;
+    transition: transform 0.5s ease;
+}
+.phone:hover {
+    transform: rotate(20deg) scale(1.1);
+}
+.copy{
+    font-size: 1vw;
+    font-family: "Jura";
+    font-weight: 400;
+    position: relative;
+    top: 3.5vw;
+}
+.dd{
+    position: absolute;
+    width: 20vw;
+    left: 5vw;
+    bottom: 2vw;
+    /* opacity: 0; */
+    animation: floatBoneDD 5s ease-in-out infinite 0.5s;
+
+}
+
+/* ===== KEYFRAMES АНИМАЦИЙ ===== */
+@keyframes floatBoneDD {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    60% {
+        transform: scale(1.15);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes floatBone {
+    0% {
+        transform: translateY(0px) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(-25px) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(-5deg);
+    }
+}
+
+@keyframes dogWag {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(3deg);
+    }
+    75% {
+        transform: rotate(-3deg);
+    }
+}
+
+@keyframes catSit {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(2deg);
+    }
+}
+
+/* ===== МЕДИА-ЗАПРОСЫ ===== */
+
+/* ===== АДАПТИВ ДЛЯ 1240px (НОУТБУКИ) ===== */
+@media (max-width: 1280px) {
+    /* Прелоадер */
+    .paw-container {
+        bottom: 32vh;
+        left: 25vw;
+        gap: 12px;
+    }
+    .paw1, .paw2, .paw3, .paw4 {
+        width: 50px;
+        height: auto;
+    }
+    @keyframes runDiagonal {
+        0% {
+            transform: translate(0px, 0px) rotate(-20deg);
+        }
+        50% {
+            transform: translate(100px, -75px) rotate(-25deg);
+        }
+        100% {
+            transform: translate(200px, -150px) rotate(0deg);
+        }
+    }
+    /* Бургер */
+    .burger span {
+        width: 55px;
+        height: 4px;
+    }
+    #nav a button {
+        font-size: 2vw;
+        padding: 14px;
+        margin-top: 0;
+    }
+    /* Заголовки */
+    h1 {
+        font-size: 8vw;
+        margin: -2.5vw 0;
+    }
+    h2 {
+        font-size: 4vw;
+        top: 1.5vw;
+    }
+
+    /* Животные в хедере */
+    .dog {
+        width: 25vw;
+        right: -2vw;
+        top: 7.5vw;
+    }
+    .cat {
+        width: 20vw;
+        left: 8vw;
+        top: 7.5vw;
+    }
+    .bone {
+        width: 4.5vw;
+        height: 4.5vw;
+        right: 9vw;
+        top: 5.5vw;
+    }
+    .fish {
+        width: 4.5vw;
+        height: 4.5vw;
+        right: 16vw;
+        top: 6vw;
+    }
+    .bowl1 {
+        width: 8vw;
+        height: 4.5vw;
+        right: 3vw;
+        top: 7.5vw;
+    }
+    .bowl2 {
+        width: 8vw;
+        height: 4.5vw;
+        right: 22vw;
+        top: 7.5vw;
+    }
+
+    /* Текст */
+    .about {
+        width: 85vw;
+        font-size: 2.2vw;
+        top: 10.5vw;
+    }
+
+    /* Номера */
+    .rooms {
+        font-size: 3.5vw;
+        margin-top: 12vw;
+    }
+    .nomera {
+        width: 75vw;
+        font-size: 2.2vw;
+    }
+
+    /* Кнопки */
+    .buttons button {
+        height: 3vw;
+        width: 16vw;
+        top: 1.8vw;
+    }
+    .p {
+        font-size: 1.8vw;
+        margin-top: 0.3vw;
+    }
+
+    /* Собака внизу */
+    .dog2 {
+        right: 44vw;
+        bottom: 11vw;
+        width: 17vw;
+    }
+
+    /* Адрес и карта */
+    .adres {
+        font-size: 3.5vw;
+        top: -12vw;
+    }
+    .gorod {
+        font-size: 1.8vw;
+        bottom: 12vw;
+    }
+    iframe {
+        width: 92vw;
+        height: 50vh;
+        bottom: 6vw;
+    }
+    /* Кот у карты */
+    .cat2 {
+        width: 20vw;
+        top: 120vw;
+        right: 1.5vw;
+    }
+    /* Футер */
+    .dd {
+        width: 22vw;
+        left: 4vw;
+        bottom: 3vw;
+    }
+    .socials img {
+        top: 3vw;
+    }
+    .tg {
+        width: 5vw;
+    }
+    .wt {
+        width: 5vw;
+    }
+    .alo {
+        left: 82vw;
+        bottom: 9vw;
+        font-size: 1.8vw;
+        width: 15vw;
+        height: 3.5vw;
+    }
+    .phone {
+        width: 6vw;
+        bottom: 4.5vw;
+        right: 8vw;
+    }
+    .copy {
+        font-size: 1.5vw;
+        top: 4.5vw;
+    }
+}
+/* ===== АДАПТИВ ДЛЯ 768px (ПЛАНШЕТЫ) ===== */
+@media (max-width: 820px){
+    /* Прелоадер */
+    .paw-container {
+        bottom: 35vh;
+        left: 20vw;
+        gap: 10px;
+    }
+    .paw1, .paw2, .paw3, .paw4 {
+        width: 40px;
+        height: auto;
+    }
+    .paw3 {
+        margin-bottom: 12vw;
+    }
+    .paw4 {
+        margin-bottom: 12vw;
+    }
+    @keyframes runDiagonal {
+        0% {
+            transform: translate(0px, 0px) rotate(-20deg);
+        }
+        50% {
+            transform: translate(80px, -65px) rotate(-25deg);
+        }
+        100% {
+            transform: translate(160px, -130px) rotate(0deg);
+        }
+    }
+
+    /* Бургер */
+    .burger{
+        top: 10px;
+        /* right: 15px; */
+    }
+    .burger span {
+        width: 60px;
+        height: 4px;
+    }
+    /* Меню */
+    #nav {
+        width: 280px;
+        padding: 70px 25px 25px;
+    }
+    #nav a button {
+        font-size: 4vw !important;
+        padding: 14px;
+    }
+    /* Заголовки */
+    h1 {
+        font-size: 10vw;
+        margin: -2.5vw 0;
+    }
+    h2 {
+        font-size: 6vw;
+        top: 2vw;
+    }
+
+    /* Животные в хедере */
+    .dog {
+        width: 28vw;
+        right: -3vw;
+        top: 7.5vw;
+    }
+    .cat {
+        width: 22vw;
+        left: 8vw;
+        top: 7.5vw;
+    }
+    .bone {
+        width: 5vw;
+        height: 5vw;
+        right: 8vw;
+        top: 5.5vw;
+        animation: floatBone 2s ease-in-out infinite;
+    }
+    .fish {
+        width: 5vw;
+        height: 5vw;
+        right: 18vw;
+        top: 6vw;
+        animation: floatBone 2.5s ease-in-out infinite 0.3s;
+    }
+    .bowl1 {
+        width: 8vw;
+        height: 5vw;
+        right: 2vw;
+        top: 7.5vw;
+    }
+    .bowl2 {
+        width: 8vw;
+        height: 5vw;
+        right: 25vw;
+        top: 7.5vw;
+    }
+    /* Текст */
+    .about {
+        width: 85vw;
+        font-size: 3.5vw;
+        top: 11vw;
+    }
+    /* Номера */
+    .rooms {
+        font-size: 6vw;
+        margin-top: 10vw;
+    }
+    .nomera {
+        width: 80vw;
+        font-size: 3.5vw;
+    }
+
+    /* Кнопки */
+    .buttons {
+        gap: 3vw;
+        flex-direction: row;
+        align-items: center;
+    }
+    .buttons button {
+        height: 5vw;
+        width: 25vw;
+        top: 1.5vw;
+    }
+    .p {
+        font-size: 3.5vw;
+        margin-top: 0.5vw;
+    }
+    /* Собака внизу */
+    .dog2 {
+        right: 40vw;
+        bottom: 10vw;
+        width: 18vw;
+    }
+
+    /* Адрес и карта */
+    .adres {
+        font-size: 6vw;
+        top: -12vw;
+    }
+    .gorod {
+        font-size: 3vw;
+        bottom: 14vw;
+    }
+    iframe {
+        width: 90vw;
+        height: 45vh;
+        bottom: 8vw;
+    }
+    /* Кот у карты */
+    .cat2 {
+        width: 25vw;
+        top: 176vw;
+        right: 1vw;
+    }
+    /* Футер */
+    footer {
+        padding-bottom: 8vw;
+    }
+    .dd {
+        width: 30vw;
+        left: 4vw;
+        bottom: 15vw;
+        animation: floatBone 3s ease-in-out infinite 0.5s;
+    }
+    .socials img {
+        top: 15vw;
+    }
+    .tg {
+        width: 8vw;
+    }
+    .wt {
+        width: 8vw;
+    }
+    .alo {
+        left: 68vw;
+        bottom: 18vw;
+        /* margin-top: 8vw; */
+        font-size: 3.5vw;
+        width: 30vw;
+        height: 4vw;
+    }
+    .phone {
+        width: 8vw;
+        bottom: 7vw;
+        right: 14vw;
+    }
+    .copy {
+        font-size: 2.5vw;
+        top: 15vw;
+    }
+}
+@media (max-width: 480px) {
+    .paw-container {
+        bottom: 40vh;
+        left: 15vw;
+        gap: 8px;
+    }
+    .paw1, .paw2, .paw3, .paw4 {
+        width: 30px;
+        height: auto;
+    }
+    .paw1 {
+        margin-left: 2vw;
+    }
+    .paw2 {
+        margin-left: 3vw;
+    }
+    .paw3 {
+        margin-left: 2vw;
+        margin-bottom: 15vw;
+    }
+    .paw4 {
+        margin-left: 3vw;
+        margin-bottom: 15vw;
+    }
+    @keyframes runDiagonal {
+        0% {
+            transform: translate(0px, 0px) rotate(-20deg);
+        }
+        50% {
+            transform: translate(60px, -50px) rotate(-25deg);
+        }
+        100% {
+            transform: translate(120px, -100px) rotate(0deg);
+        }
+    }
+    /* Бургер */
+    .burger{
+        top: 0 !important;
+        right: 0;
+    }
+    .burger span {
+        width: 40px;
+        height: 3px;
+    }
+    /* Меню */
+    #nav {
+        width: 250px;
+        padding: 60px 20px 20px;
+    }
+    #nav a button {
+        font-size: 5vw !important;
+        padding: 12px;
+    }
+    /* Заголовки */
+    h1 {
+        font-size: 10vw;
+        margin: -2vw 0;
+    }
+    h2 {
+        font-size: 8vw;
+        top: 3.5vw;
+    }
+    
+    /* Животные в хедере */
+    .dog {
+        width: 30vw;
+        right: -7vw;
+        top: 8vw;
+    }
+    .cat {
+        width: 25vw;
+        left: 8vw;
+        top: 8vw;
+    }
+    .bone {
+        width: 6vw;
+        height: 6vw;
+        right: 7vw;
+        top: 6vw;
+        animation: floatBoneMobile 2s ease-in-out infinite !important;
+    }
+    .fish {
+        width: 6vw;
+        height: 6vw;
+        right: 22vw;
+        top: 6vw;
+        animation: floatBoneMobile 2.5s ease-in-out infinite 0.3s !important;
+    }
+    .bowl1 {
+        width: 10vw;
+        height: 6vw;
+        right: -1vw;
+        top: 8vw;
+    }
+    .bowl2 {
+        width: 10vw;
+        height: 6vw;
+        right: 31vw;
+        top: 8vw;
+    }
+    /* Текст */
+    .about {
+        width: 90vw;
+        font-size: 4.5vw;
+        top: 12vw;
+    }
+    /* Номера */
+    .rooms {
+        font-size: 8vw;
+        margin-top: 1vw;
+    }
+    .nomera {
+        width: 85vw;
+        font-size: 4.5vw;
+        width: 90vw;
+    }
+    /* Кнопки */
+    .buttons {
+        gap: 4vw;
+        flex-direction: column;
+        align-items: center;
+    }
+    .buttons button {
+        height: 8vw;
+        width: 40vw;
+        top: 1vw;
+    }
+    .p {
+        font-size: 4.5vw;
+        margin-top: 1vw;
+    }
+    /* Собака внизу */
+    .dog2 {
+        right: 39vw;
+        bottom: 20vw;
+        width: 25vw;
+    }
+    /* Адрес и карта */
+    .adres {
+        font-size: 8vw;
+        top: -20vw;
+    }
+    .gorod {
+        font-size: 4.5vw;
+        bottom: 22vw;
+    }
+    iframe {
+        width: 92vw;
+        height: 35vh;
+        bottom: 10vw;
+    }
+    /* Кот у карты */
+    .cat2 {
+        width: 35vw;
+        top: 240vw;
+        right: 1vw;
+    }
+    /* Футер */
+    footer {
+        padding-bottom: 10vw;
+    }
+    .dd {
+        width: 35vw;
+        left: 3vw;
+        bottom: 27vw;
+        animation: floatBoneMobile 3s ease-in-out infinite 0.5s !important;
+    }
+    .socials img {
+        top: 20vw;
+    }
+    .tg {
+        width: 10vw;
+    }
+    .wt {
+        width: 10vw;
+    }
+    .alo {
+        left:64vw;
+        bottom: 25vw;
+        margin-top: 10vw;
+        font-size: 4.5vw;
+        width: 35vw;
+        height: 5vw;
+    }
+    .phone {
+        width: 10vw;
+        bottom: 8.5vw;
+        right: 17vw;
+    }
+    .copy {
+        font-size: 3.5vw;
+        top: 21vw !important;
+    }
+    /* ===== АНИМАЦИЯ ДЛЯ МОБИЛЬНЫХ (МЕНЬШЕ ПРЫЖОК) ===== */
+@keyframes floatBoneMobile {
+    0% {
+        transform: translateY(0px) rotate(-2deg) scale(1);
+    }
+    50% {
+        transform: translateY(-6px) rotate(2deg) scale(1.02);
+    }
+    100% {
+        transform: translateY(0px) rotate(-2deg) scale(1);
+    }
+}
+}
