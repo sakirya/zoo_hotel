@@ -184,6 +184,7 @@ a{
     font-family: "Jura bold";
     font-weight: bold;
     margin-top: 2vw;
+     color: black;
 }
 #nav a button:hover {
     background: #d9d9d9;
