@@ -184,6 +184,7 @@ a{
     font-family: "Jura bold";
     font-weight: bold;
     margin-top: 2vw;
+     color: black;
 }
 #nav a button:hover {
     background: #d9d9d9;
@@ -371,6 +372,7 @@ textarea:focus {
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards 0.5s;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     color: black;
 }
 
 .zaba:hover {
