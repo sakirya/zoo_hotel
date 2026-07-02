@@ -238,7 +238,7 @@ select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-
+     color: black
     background-image: url('./img/pet.svg');
     background-size: 2vw;
     background-repeat: no-repeat;
@@ -251,6 +251,7 @@ select {
     font-family: "Jura";
     padding: 0.5vh 1vw;
     height: 2.5vw;
+     color: black
 } 
 
 input{
@@ -264,6 +265,7 @@ input{
     text-align: center;
     font-family: "Jura";
     font-size: 1vw;
+     color: black
 }
 input:focus {
     outline: none;
@@ -276,6 +278,7 @@ input:focus {
     color: black;
     left: 1vw;
     bottom: 0.2vw;
+     color: black
     
 }
 .cat2{
@@ -310,11 +313,13 @@ textarea{
     font-size: 1.5vw;
     border: none;
     text-align: center;
+     color: black
     /* margin-top: 5vw; */
 }
 .stom{
     margin-top: 8vw;
     margin-left: 14vw;
+     color: black
 }
 .ras{
     background: #D9D9D9;
