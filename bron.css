@@ -12,7 +12,8 @@
 }
 /* ===== ТОЛЬКО ДЛЯ IOS ===== */
 @supports (-webkit-touch-callout: none) {
-    , input, select, textarea {
+    
+    input, select, textarea {
         -webkit-appearance: none !important;
         appearance: none !important;
         background: #D9D9D9 !important;
@@ -279,6 +280,8 @@ input {
     opacity: 0;
     animation: fadeInUp 1s ease forwards 0.6s;
     transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+     color: black
+    
 }
 
 input:focus {
@@ -770,6 +773,7 @@ footer {
         font-size: 4vw;
         margin-top: 5vw;
         background-size: 5vw;
+         color: black
     }
     input {
         width: 68vw;
@@ -784,6 +788,7 @@ footer {
         height: 4vw;
         width: 70vw;
         margin-top: 2vw;
+         color: black
     }
     ::placeholder{
         font-size: 4vw;
@@ -795,12 +800,14 @@ footer {
     }
     select option {
         font-size: 4vw;
+         color: black
     }
     textarea {
         width: 70vw;
         height: 8vw;
         font-size: 4vw;
         margin-top: 5vw;
+         color: black
     }
     .laptop {
         width: 16vw;
@@ -920,6 +927,12 @@ footer {
         height: 12vw;
         font-size: 4vw;
         margin-top: 5vw;
+        margin-left: -6vw;
+    }
+    input {
+        width: 78vw;
+        height: 8vw;
+        font-size: 2vw;
         margin-left: -6vw;
     }
     .zaba, .ras {
