@@ -793,4 +793,14 @@ footer {
         font-size: 3.5vw;
         top: 21vw !important;
     }
+    .a1 img,
+.a2 img,
+.a3 img,
+.a4 img,
+.a5 img,
+.a6 img {
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    border-radius: 6.1vw;
+    cursor: pointer;
+}
 }
