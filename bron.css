@@ -922,6 +922,11 @@ footer {
         margin-left: -5vw;
         background-size: 5vw;
     }
+    .laptop {
+        width: 16vw;
+        bottom: 22.5vw;
+        left: 55vw;
+    }
     textarea {
         width: 80vw;
         height: 12vw;
