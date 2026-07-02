@@ -299,11 +299,11 @@ h2 {
     animation: fadeInUp 0.8s ease forwards 0.5s;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.buttons button:hover {
+.s :hover {
     transform: scale(1.08) translateY(-3px);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
 }
-.buttons button:nth-child(2) {
+.s :nth-child(2) {
     animation-delay: 0.7s;
 }
 .p{
@@ -426,7 +426,7 @@ footer {
 }
 /* ===== ТОЛЬКО ДЛЯ IOS ===== */
 @supports (-webkit-touch-callout: none) {
-    button, input, select, textarea {
+    , input, select, textarea {
         -webkit-appearance: none !important;
         appearance: none !important;
         background: #D9D9D9 !important;
@@ -760,6 +760,9 @@ footer {
     #nav a button {
         font-size: 4vw !important;
         padding: 14px;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
     }
     /* Заголовки */
     h1 {
@@ -955,6 +958,9 @@ footer {
     #nav a button {
         font-size: 5vw !important;
         padding: 12px;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
     }
     /* Заголовки */
     h1 {
