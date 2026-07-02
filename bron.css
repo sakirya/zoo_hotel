@@ -920,7 +920,7 @@ footer {
         font-size: 4vw;
         margin-top: 5vw;
         margin-left: -5vw;
-        background-size: 5vw;
+        background-size: 7vw;
     }
     .laptop {
         width: 16vw;
@@ -937,7 +937,7 @@ footer {
     input {
         width: 78vw;
         height: 8vw;
-        font-size: 2vw;
+        font-size: 4vw;
         margin-left: -6vw;
     }
     .zaba, .ras {
