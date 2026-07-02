@@ -149,7 +149,7 @@ a{
     border: none;
     cursor: pointer;
     position: static !important;
-    background: none;
+    background: none !important;
     font-family: "Jura bold";
     font-weight: bold;
     margin-top: 2vw;
