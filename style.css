@@ -424,24 +424,23 @@ footer {
     animation: floatBoneDD 5s ease-in-out infinite 0.5s;
 
 }
-/* ===== FIX ДЛЯ IOS ===== */
-
-a, button, input, select, textarea {
-    -webkit-appearance: none;
-    appearance: none;
-}
-
-a {
-    color: black !important;
-}
-
-button {
-    background: #D9D9D9 !important;
-    color: black !important;
-}
-
-input, select, textarea {
-    color: black !important;
+/* ===== ТОЛЬКО ДЛЯ IOS ===== */
+@supports (-webkit-touch-callout: none) {
+    button, input, select, textarea {
+        -webkit-appearance: none !important;
+        appearance: none !important;
+        background: #D9D9D9 !important;
+        color: black !important;
+        border: none !important;
+    }
+    
+    select {
+        background-image: url('./img/pet.svg') !important;
+        background-size: 2vw !important;
+        background-repeat: no-repeat !important;
+        background-position: right 1vw center !important;
+        background-color: #D9D9D9 !important;
+    }
 }
 /* ===== KEYFRAMES АНИМАЦИЙ ===== */
 @keyframes floatBoneDD {
