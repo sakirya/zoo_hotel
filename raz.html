@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js"></script>
+    
+    <title>Верные друзья</title>
+    <link rel="stylesheet" href="raz.css">
+</head>
+<body>
+    <header>
+        <div id="preloader">
+            <div class="loader-content">
+                <div class="paw-container">
+                    <img src="./img/swap.svg" class="paw1" alt="Лапка">
+                    <img src="./img/swap.svg" class="paw2" alt="Лапка">
+                    <img src="./img/swap.svg" class="paw3" alt="Лапка">
+                    <img src="./img/swap.svg" class="paw4" alt="Лапка">
+                </div>
+            </div>
+        </div>
+        <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="nav">
+            <a href="index.html"><button><p class="pa">Главная</p></button></a>
+            <a href="cat.html"><button class="nom"><p class="pa">Номера для котов</p></button></a>
+            <a href="dog.html"><button class="kl"><p class="pa">Номера для собак</p></button></a>            
+            <a href="bron.html"><button><p class="pa">Бронирование</p></button></a>
+            <a href="othev.html"><button><p class="pa">Отзывы</p></button></a>  
+        </nav>
+    </header>
+    <main>
+        <div class="start">
+            <form class="form">
+            <h1>Расчет стоимость проживания</h1>
+            <label>Номер</label>
+        <div>
+            <select id="room-type">                
+                <!-- <option value="">выберите номер</option> -->
+                <option value="собака стандарт">собака стандарт 1450₽/сутки</option>
+                <option value="собака комфорт">собака комфорт 1950₽/сутки</option>
+                <option value="собака vip">собака vip 2450₽/сутки</option>
+                <option value="кот стандарт">кот стандарт 500₽/сутки</option>
+                <option value="кот комфорт">кот комфорт 850₽/сутки</option>
+                <option value="кот vip">кот vip 1000₽/сутки</option>
+            </select>
+        </div>            
+        <label>Дата проживания</label>
+        <p class="akcia">АКЦИЯ 1 день бесплатно, при условие доп. предложения</p>
+            <img src="./img/cat2.svg" class="cat2">
+            <div>
+                <input type="text" id="date-range" placeholder="выберите даты">
+            </div>
+        <label>Доп. предложения</label>
+            <div>
+                <select id="additional-service">
+                    <option value="">не нужно</option>
+                    <option value="груминг">груминг 1500₽</option>
+                    <option value="дрессировка">дрессировка 2000₽</option>
+                    <option value="лакомства">лакомства 300₽</option>
+                </select>
+            </div>
+        <div>
+                <button class="zaba" id="calculate-btn">Рассчитать</button>
+        </div>
+        <label class="stom">Стоимость проживания</label>
+        <div>
+            <textarea id="total-cost" readonly></textarea>
+        </div>
+        <div>
+            <button type="submit" class="ras">Забронировать</button>
+        </div>
+        </form>
+        </div>
+    </main>
+    <footer>
+        <img src="./img/dog9.svg" class="dog9">
+        <div class="socials">
+            <a href="https://web.telegram.org/"><img src="./img/Telegram.png" class="tg"></a>
+            <a href="https://web.whatsapp.com/"><img src="./img/WhatsApp.png"class="wt"></a>
+        </div>
+        <p class="copy">© Все права защищены <br> 2025</p>
+        <div class="alo">
+            <p>8 900 000 14 55</p><img src="./img/Phone.png" class="phone">
+        </div>
+    </footer>
+</body>
+<script src="raz.js"></script>
+</html>

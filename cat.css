@@ -1,0 +1,780 @@
+@font-face{
+    src: url('./font/Jura.ttf');
+    font-family: "Jura";
+}
+@font-face{
+    src: url('./font/jura-bold.ttf');
+    font-family: "Jura bold";
+}
+@font-face {
+    src: url('./font/Lobster-Regular.ttf');
+    font-family: "Lobster";
+}
+
+/* ===== ЭКРАН ЗАГРУЗКИ ===== */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #dff0e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+#preloader.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.loader-content {
+    text-align: center;
+}
+.paw-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: fixed;
+    bottom: 30vh;
+    left: 30vw;
+    gap: 15px;
+}
+.paw1, .paw2, .paw3, .paw4 {
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: inline-block;
+    animation: runDiagonal 2.5s ease-in-out infinite;
+    transform-origin: center;
+}
+.paw1 {
+    animation-delay: 0s;
+    margin-left: 1vw;
+    transform: rotate(-20deg);
+}
+.paw2 {
+    animation-delay: 0.4s;
+    margin-left: 2vw;
+    transform: rotate(-20deg);
+}
+.paw3 {
+    animation-delay: 0.8s;
+    margin-left: 1vw;
+    margin-bottom: 10vw;
+    transform: rotate(-20deg);
+}
+.paw4 {
+    animation-delay: 1.2s;
+    margin-left: 2vw;
+    margin-bottom: 10vw;
+    transform: rotate(-20deg);
+}
+@keyframes runDiagonal {
+    0% {
+        transform: translate(0px, 0px) rotate(-20deg);
+    }
+    10% {}
+    50% {
+        transform: translate(120px, -90px) rotate(-25deg);
+    }
+    90% {}
+    100% {
+        transform: translate(240px, -180px) rotate(0deg);
+    }
+}
+
+.burger {
+    display: block;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 9999;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+}
+.burger span {
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: black;
+    margin: 2px 0;
+    transition: 0.3s;
+}
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -5px);
+}
+#nav {
+    display: none !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: white;
+    padding: 80px 30px 30px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    z-index: 9998;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+}
+#nav.active {
+    display: flex !important;
+}
+#nav a button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.4vw !important;
+    border: none;
+    cursor: pointer;
+    position: static !important;
+    background: none;
+    font-family: "Jura bold";
+    font-weight: bold;
+    margin-top: 2vw;
+
+}
+#nav a button:hover {
+    background: #d9d9d9;
+    border-radius: 30px;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+}
+.a1 img,
+.a2 img,
+.a3 img,
+.a4 img,
+.a5 img,
+.a6 img,
+.a8 img{
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    border-radius: 1vw;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.a1 img:hover,
+.a2 img:hover,
+.a3 img:hover,
+.a4 img:hover,
+.a5 img:hover,
+.a6 img:hover,
+.a8 img:hover {
+    transform: scale(1.04);
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.25);
+}
+body {
+    background-color: #dff0e7;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+}
+/* div{
+    border: 2px solid green;
+} */
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "h1"
+    "opis"
+    "stan"
+    "kart1"
+    "comf"
+    "kart2"
+    "vip3"
+    "kart3"
+    "a9"
+    "a10";
+    margin: 0 auto ;
+    position: relative;
+    top: 4vw;
+    width: 40vw;
+    justify-content: center;
+}
+.a1{
+    grid-area: h1;
+}
+h1{
+    font-size: 2.5vw;
+    text-align: center;       
+    /* margin-top: 5.5vw; */
+    font-family: 'Jura bold';
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeInDown 1.2s ease forwards 0.3s;
+}
+.a2{
+    grid-area: opis;
+}
+.opis{
+    width: 40vw;
+    font-family: 'Jura';
+    font-size: 2vw;
+}
+.a3{
+    grid-area: stan;
+}
+.sta{
+    font-family: 'Jura bold';
+    font-size: 2.5vw;    
+    position: relative;
+    right: 30vw;
+}
+.sta2{
+    font-family: 'Jura bold';
+    font-size: 2.5vw;    
+    position: relative;
+    right: 30.2vw;
+}
+.sta1{
+    font-family: 'Jura bold';
+    font-size: 2.5vw;    
+    position: relative;
+    right: 33vw;
+}
+.a4{
+    grid-area: kart1;
+}
+.a5{
+    grid-area: comf;
+}
+.a6{
+    grid-area: kart2;
+}
+.a7{
+    grid-area: vip3;
+}
+.a8{
+    grid-area: kart3;
+}
+.a9{
+    grid-area: a9;
+}
+img{
+    width: 25vw;
+}
+.sviz{
+    background: #D9D9D9;
+    border: none;
+    border-radius: 3vw;
+    cursor: pointer;
+    font-size: 1.5vw;
+    height: 3vw;
+    width: 15vw;
+    font-family: "Jura";
+    position: relative;
+    left: 8vw;
+    bottom: 3vw;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.5s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sviz:hover {
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+.bron{
+    background: #D9D9D9;
+    border: none;
+    border-radius: 3vw;
+    cursor: pointer;
+    font-size: 1.5vw;
+    height: 3vw;
+    width: 15vw;
+    font-family: "Jura";
+    margin-right: 18vw;
+    margin-top: 5vw;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.7s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.bron:hover {
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+footer{
+    position: relative;
+    width: 100%;
+    height: 10vw;
+    top: 10vw;
+    background: rgba(105, 105, 105, 0.47);
+}
+.alo{
+    position: relative;
+    font-family: "Jura";
+    font-weight: 400;
+    left: 3vw;
+    bottom: 7vw;    
+    margin-top: 2vw;
+    font-size: 1.3vw;
+    width: 10vw;
+    height: 3vw;
+}
+.socials img {
+    margin: 0 0.5vw;
+    position: relative;
+    top: 2.5vw;
+    transition: transform 0.3s ease;
+}
+.socials img:hover {
+    transform: scale(1.2) rotate(-5deg);
+}
+.tg{
+    width: 3vw;
+}
+.wt{
+    width: 2.9vw;
+}
+.phone {
+    width: 5vw;
+    /* height: 4vw; */
+    position: relative;
+    bottom: 3.5vw;
+    right: 5vw;
+    transition: transform 0.5s ease;
+}
+.phone:hover {
+    transform: rotate(20deg) scale(1.1);
+}
+.copy{
+    font-size: 1vw;
+    font-family: "Jura";
+    font-weight: 400;
+    position: relative;
+    top: 2.5vw;
+}
+.cat3{
+    width: 20vw;
+    position: absolute;
+    bottom: 3vw;
+    left: 78vw;
+    z-index: 1;                    /* добавили */
+    animation: floatDog5 5s ease-in-out infinite 0.5s;
+    pointer-events: none;          /* важно */
+    will-change: transform;        /* только для анимации */
+    backface-visibility: hidden;
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatGaf {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+}
+
+@keyframes floatDog5 {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(2deg);
+    }
+}
+
+@keyframes floatDog6 {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(3deg);
+    }
+}
+@media (max-width: 1280px) {
+    .paw-container {
+        bottom: 32vh;
+        left: 25vw;
+        gap: 12px;
+    }
+    .paw1, .paw2, .paw3, .paw4 {
+        width: 50px;
+        height: auto;
+    }
+    @keyframes runDiagonal {
+        0% {
+            transform: translate(0px, 0px) rotate(-20deg);
+        }
+        50% {
+            transform: translate(100px, -75px) rotate(-25deg);
+        }
+        100% {
+            transform: translate(200px, -150px) rotate(0deg);
+        }
+    }
+    
+    .burger span {
+        width: 55px;
+        height: 4px;
+    }
+    #nav a button {
+        font-size: 2vw !important;
+        padding: 14px;
+        margin-top: 0;
+    }
+    h1 {
+        font-size: 3vw;
+    }
+    .opis {
+        font-size: 2.2vw;
+        width: 45vw;
+        left: 28vw;
+        top: 11vw;
+    }
+    .bron, .sviz {
+        font-size: 1.8vw;
+        height: 3vw;
+        width: 18vw;
+        
+    }
+    .bron{
+        margin-right: 20vw;
+    }
+    .sviz{
+        margin-right: -6vw;
+    }
+    .gaf {
+        width:14vw;
+        height: 23vw;
+        top: 56vw;
+        left: 27vw;
+    }
+    .dog5 {
+        width: 15vw;
+        height: 17vw;
+        bottom: 12vw;
+        left: 3vw;
+    }
+    .dog6 {
+        width: 7vw;
+        height: 11vw;
+        top: 3.5vw;
+        right: 49vw;
+    }
+    .dog7 {
+        width: 4.5vw;
+        height: 11vw;
+        top: 41vw;
+        right: 6.5vw;
+    }
+    footer{
+        height: auto;
+    }
+    .socials img {
+        top: 3vw;
+    }
+    .tg {
+        width: 5vw;
+    }
+    .wt {
+        width: 5vw;
+    }
+    .alo {
+        left: 4vw;
+        bottom: 10vw;
+        font-size: 1.8vw;
+        width: 15vw;
+        height: 3.5vw;
+    }
+    .phone {
+        width: 6vw;
+        bottom: 4.5vw;
+        right: 8vw;
+    }
+    .copy {
+        font-size: 1.5vw;
+        top: 4.5vw;
+    }
+}
+@media (max-width: 820px) {
+    .paw-container {
+        bottom: 35vh;
+        left: 20vw;
+        gap: 10px;
+    }
+    .paw1, .paw2, .paw3, .paw4 {
+        width: 40px;
+        height: auto;
+    }
+    .paw3 {
+        margin-bottom: 12vw;
+    }
+    .paw4 {
+        margin-bottom: 12vw;
+    }
+    @keyframes runDiagonal {
+        0% {
+            transform: translate(0px, 0px) rotate(-20deg);
+        }
+        50% {
+            transform: translate(80px, -65px) rotate(-25deg);
+        }
+        100% {
+            transform: translate(160px, -130px) rotate(0deg);
+        }
+    }
+    .burger{
+        top: 10px;
+    }
+    .burger span {
+        width: 60px;
+        height: 4px;
+    }
+    #nav {
+        width: 280px;
+        padding: 70px 25px 25px;
+    }
+    #nav a button {
+        font-size: 4vw !important;
+        padding: 14px;
+    }
+    h1{
+        margin-top: 7.5vw;
+        font-size: 4.5vw;
+        text-align: center;
+    }
+    .opis{
+        top: 17vw;
+        font-size: 3vw;
+        width: 50vw;
+        left: 24vw;
+    }    
+    img{
+        width: 45vw;
+    }
+    .sta1{
+        font-family: 'Jura bold';
+        font-size: 3.5vw;    
+        position: relative;
+        right: 30vw;
+    }
+    .sta{
+        font-family: 'Jura bold';
+        font-size: 3.5vw;    
+        position: relative;
+        right: 25vw;
+    }
+    .sta2{
+        font-family: 'Jura bold';
+        font-size: 3.5vw;    
+        position: relative;
+        right: 25vw;
+    }
+    .sviz, .bron{
+        font-size: 3.5vw;
+        height: 5vw;
+        width: 35vw;
+        margin: 0 auto;
+    }
+    .bron{
+        margin-top: 3vw;
+    }
+    .sviz{
+        margin-top: 6vw;
+        margin-left: -16vw;
+    }
+    .cat3{
+        width: 23vw;
+        position: absolute;
+        bottom: 24vw;
+        left: 78vw;
+        z-index: 1;
+        pointer-events: none;
+    }
+    footer{
+        position: relative;
+        width: 100%;
+        height: 33vw;
+        background: rgba(105, 105, 105, 0.47);
+    }
+    .socials img {
+        top: 15vw;
+    }
+    .tg {
+        width: 8vw;
+    }
+    .wt {
+        width: 8vw;
+    }
+    .alo {
+        left: 2vw;
+        bottom: 18vw;
+        font-size: 3.5vw;
+        width: 30vw;
+        height: 4vw;
+    }
+    .phone {
+        width: 8vw;
+        bottom: 7vw;
+        right: 13vw;
+    }
+    .copy {
+        font-size: 2.5vw;
+        top: 15vw;
+    }
+}
+/* ===== АДАПТИВ ДЛЯ 480px ===== */
+@media (max-width: 480px) {
+    .paw-container {
+        bottom: 40vh;
+        left: 15vw;
+        gap: 8px;
+    }
+    .paw1, .paw2, .paw3, .paw4 {
+        width: 30px;
+        height: auto;
+    }
+    .paw1 {
+        margin-left: 2vw;
+    }
+    .paw2 {
+        margin-left: 3vw;
+    }
+    .paw3 {
+        margin-left: 2vw;
+        margin-bottom: 15vw;
+    }
+    .paw4 {
+        margin-left: 3vw;
+        margin-bottom: 15vw;
+    }
+    @keyframes runDiagonal {
+        0% {
+            transform: translate(0px, 0px) rotate(-20deg);
+        }
+        50% {
+            transform: translate(60px, -50px) rotate(-25deg);
+        }
+        100% {
+            transform: translate(120px, -100px) rotate(0deg);
+        }
+    }
+    .burger{
+        top: 0 !important;
+        right: 2px !important;
+    }
+    .burger span {
+        width: 40px;
+        height: 3px;
+    }
+    #nav {
+        width: 250px;
+        padding: 60px 20px 20px;
+    }
+    #nav a button {
+        font-size: 5vw !important;
+        padding: 12px;
+    }
+    h1{
+        font-size: 6vw;
+        text-align: center;
+    }
+    img {
+        width: 75vw;
+    }
+    .opis{
+        top: 18vw;
+        font-size: 3.5vw;
+        width: 60vw;
+        /* left: 20vw; */
+        margin: 0 auto;
+    }    
+    .a3 {
+        margin-top: 4vw;
+    }
+    .sviz, .bron{
+        font-size: 4.5vw;
+        height: 8vw;
+        width: 45vw;
+    }
+    .sta1{
+        font-family: 'Jura bold';
+        font-size: 4.5vw;    
+        position: relative;
+        right: 26vw;
+    }
+    .sta{
+        font-family: 'Jura bold';
+        font-size: 4.5vw;    
+        position: relative;
+        right: 20vw;
+    }
+    .sta2{
+        font-family: 'Jura bold';
+        font-size: 4.5vw;    
+        position: relative;
+        right: 21vw;
+    }
+    .cat3 {
+        bottom: 30vw;
+        width: 27vw;
+        left: 75vw;
+        z-index: 1;
+        pointer-events: none;
+    }
+    footer{
+        position: relative;
+        width: 100%;
+        height: 45vw;
+        background: rgba(105, 105, 105, 0.47);
+    }
+    .socials img {
+        top: 20vw;
+    }
+    .tg {
+        width: 10vw;
+    }
+    .wt {
+        width: 10vw;
+    }
+    .alo {
+        left:6vw;
+        bottom: 29vw;
+        margin-top: 10vw;
+        font-size: 4.5vw;
+        width: 35vw;
+        height: 5vw;
+    }
+    .phone {
+        width: 10vw;
+        bottom: 8.5vw;
+        right: 17vw;
+    }
+    .copy {
+        font-size: 3.5vw;
+        top: 21vw !important;
+    }
+}

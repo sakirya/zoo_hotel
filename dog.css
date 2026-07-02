@@ -1,0 +1,899 @@
+@font-face{
+    src: url('./font/Jura.ttf');
+    font-family: "Jura";
+}
+@font-face{
+    src: url('./font/jura-bold.ttf');
+    font-family: "Jura bold";
+}
+@font-face {
+    src: url('./font/Lobster-Regular.ttf');
+    font-family: "Lobster";
+}
+
+body {
+    background-color: #dff0e7;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* ===== ЭКРАН ЗАГРУЗКИ ===== */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #dff0e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+#preloader.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.loader-content {
+    text-align: center;
+}
+.paw-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    position: fixed;
+    bottom: 30vh;
+    left: 30vw;
+    gap: 15px;
+}
+.paw1, .paw2, .paw3, .paw4 {
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: inline-block;
+    animation: runDiagonal 2.5s ease-in-out infinite;
+    transform-origin: center;
+}
+.paw1 {
+    animation-delay: 0s;
+    margin-left: 1vw;
+    transform: rotate(-20deg);
+}
+.paw2 {
+    animation-delay: 0.4s;
+    margin-left: 2vw;
+    transform: rotate(-20deg);
+}
+.paw3 {
+    animation-delay: 0.8s;
+    margin-left: 1vw;
+    margin-bottom: 10vw;
+    transform: rotate(-20deg);
+}
+.paw4 {
+    animation-delay: 1.2s;
+    margin-left: 2vw;
+    margin-bottom: 10vw;
+    transform: rotate(-20deg);
+}
+@keyframes runDiagonal {
+    0% {
+        transform: translate(0px, 0px) rotate(-20deg);
+    }
+    10% {}
+    50% {
+        transform: translate(120px, -90px) rotate(-25deg);
+    }
+    90% {}
+    100% {
+        transform: translate(240px, -180px) rotate(0deg);
+    }
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.burger {
+    display: block;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 9999;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+}
+.burger span {
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: black;
+    margin: 2px 0;
+    transition: 0.3s;
+}
+.burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+.burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -5px);
+}
+#nav {
+    display: none !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: white;
+    padding: 80px 30px 30px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    z-index: 9998;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+}
+#nav.active {
+    display: flex !important;
+}
+#nav a button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.4vw !important;
+    border: none;
+    cursor: pointer;
+    position: static !important;
+    background: none;
+    font-family: "Jura bold";
+    font-weight: bold;
+    margin-top: 2vw;
+
+}
+#nav a button:hover {
+    background: #d9d9d9;
+    border-radius: 30px;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+}
+h1{
+    font-size: 2.5vw;
+    text-align: center;     
+    margin-top: 5.5vw;
+    font-family: 'Jura bold';
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeInDown 1.2s ease forwards 0.3s;
+}
+.opis{
+    position: absolute;
+    width: 40vw;
+    top: 10vw;
+    left: 30vw;
+    font-family: 'Jura';
+    font-size: 2vw;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.8s;
+}
+/* ===== GRID ===== */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "d1 d1"
+    "stan1 stan2"
+    "d2 d2"
+    "komf1 komf2"
+    "d3 d3"
+    "vip1 vip2"
+    "d4 d5";
+    position: relative;
+    top: 15vw;
+    width: 80vw;
+    margin: auto;
+    gap: 3vw;
+}
+.d1{
+    grid-area: d1;
+    font-family: 'Jura bold';
+    font-size: 2.5vw;
+    position: relative;
+    right: 30vw;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.3s;
+}
+.a1{
+    grid-area: stan1;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.5s;
+    position: relative;
+    /* z-index: -1; */
+}
+.a2{
+    grid-area: stan2;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.7s;
+}
+.d2{
+    grid-area: d2;
+    font-family: 'Jura bold';
+    font-size: 2.5vw;
+    position: relative;
+    right: 30.4vw;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.3s;
+}
+.a3{
+    grid-area: komf1;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.5s;
+}
+.a4{
+    grid-area: komf2;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.7s;
+}
+.d3{
+    grid-area: d3;
+    font-family: 'Jura bold';
+    font-size: 2.5vw;
+    position: relative;
+    right: 33.5vw;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.3s;
+}
+.a5{
+    grid-area: vip1;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.5s;
+}
+.a6{
+    grid-area: vip2;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.7s;
+}
+.d4{
+    grid-area: d4;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.8s;
+}
+.d5{
+    grid-area: d5;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 1s;
+}
+/* ===== HOVER ЭФФЕКТ ДЛЯ КАРТИНОК В GRID ===== */
+.a1 img,
+.a2 img,
+.a3 img,
+.a4 img,
+.a5 img,
+.a6 img {
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    border-radius: 1vw;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+}
+
+.a1 img:hover,
+.a2 img:hover,
+.a3 img:hover,
+.a4 img:hover,
+.a5 img:hover,
+.a6 img:hover {
+    transform: scale(1.04);
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.25);
+}
+img{
+    width: 30vw;
+    /* height: 100%; */
+    z-index: 0;
+}
+.gaf{
+    width: 13vw;
+    height: 21vw;
+    position: absolute;
+    top:60vw;
+    left: 25vw;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 1.2s, floatGaf 4s ease-in-out infinite 2s;
+    z-index: 1;
+}
+.sviz{
+    background: #D9D9D9;
+    border: none;
+    border-radius: 3vw;
+    cursor: pointer;
+    font-size: 1.5vw;
+    height: 3vw;
+    width: 15vw;
+    font-family: "Jura";
+    margin-left: 25vw;
+    margin-top: 2vw;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.5s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sviz:hover {
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.bron{
+    background: #D9D9D9;
+    border: none;
+    border-radius: 3vw;
+    cursor: pointer;
+    font-size: 1.5vw;
+    height: 3vw;
+    width: 15vw;
+    font-family: "Jura";
+    margin-right: 25vw;
+    margin-top: 2vw;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards 0.7s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.bron:hover {
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== FOOTER ===== */
+footer{
+    position: relative;
+    width: 100%;
+    height: 10vw;
+    top: 30vw;
+    background: rgba(105, 105, 105, 0.47);
+}
+.dog5{
+    width: 15vw;
+    height: 15vw;
+    position: absolute;
+    bottom: 7vw;
+    left: 3vw;
+    z-index: 1;
+    animation: floatDog5 5s ease-in-out infinite 0.5s;
+}
+.dog6{
+    width: 6vw;
+    height: 10vw;
+    position: absolute;
+    top: 4.7vw;
+    right: 46vw;
+    z-index: 1 !important;
+    animation: floatDog6 4s ease-in-out infinite 0.5s;
+}
+.dog7{
+    width: 4.5vw;
+    height: 10vw;
+    position: absolute;
+    top: 43vw;
+    right: 6vw;
+    z-index: 1;
+    animation: floatDog6 4.5s ease-in-out infinite 0.7s;
+}
+.socials img {
+    margin: 0 0.5vw;
+    position: relative;
+    top: 2.5vw;
+    transition: transform 0.3s ease;
+}
+.socials img:hover {
+    transform: scale(1.2) rotate(-5deg);
+}
+.tg{
+    width: 3vw;
+}
+.wt{
+    width: 2.9vw;
+}
+.alo{
+    position: relative;
+    font-family: "Jura";
+    font-weight: 400;
+    left: 87vw;
+    bottom: 7vw;    
+    margin-top: 2vw;
+    font-size: 1.3vw;
+    width: 10vw;
+    height: 3vw;
+}
+.phone {
+    width: 5vw;
+    /* height: 4vw; */
+    position: relative;
+    bottom: 3.5vw;
+    right: 5vw;
+    transition: transform 0.5s ease;
+}
+.phone:hover {
+    transform: rotate(20deg) scale(1.1);
+}
+.copy{
+    font-size: 1vw;
+    font-family: "Jura";
+    font-weight: 400;
+    position: relative;
+    top: 2.5vw;
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatGaf {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+}
+
+@keyframes floatDog5 {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(2deg);
+    }
+}
+
+@keyframes floatDog6 {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(3deg);
+    }
+}
+
+/* ===== АДАПТИВ ДЛЯ 1240px ===== */
+@media (max-width: 1280px) {
+    .paw-container {
+        bottom: 32vh;
+        left: 25vw;
+        gap: 12px;
+    }
+    .paw1, .paw2, .paw3, .paw4 {
+        width: 50px;
+        height: auto;
+    }
+    @keyframes runDiagonal {
+        0% {
+            transform: translate(0px, 0px) rotate(-20deg);
+        }
+        50% {
+            transform: translate(100px, -75px) rotate(-25deg);
+        }
+        100% {
+            transform: translate(200px, -150px) rotate(0deg);
+        }
+    }
+    
+    .burger span {
+        width: 55px;
+        height: 4px;
+    }
+    #nav a button {
+        font-size: 2vw !important;
+        padding: 14px;
+        margin-top: 0;
+    }
+    h1 {
+        font-size: 3vw;
+        margin-top: 4.5vw;
+    }
+    .opis {
+        font-size: 2.2vw;
+        width: 45vw;
+        left: 28vw;
+        top: 11vw;
+    }
+    .grid {
+        width: 85vw;
+        gap: 2.5vw;
+        top: 17vw;
+    }
+    .bron, .sviz {
+        font-size: 1.8vw;
+        height: 3vw;
+        width: 18vw;
+    }
+    .gaf {
+        width:14vw;
+        height: 23vw;
+        top: 56vw;
+        left: 27vw;
+    }
+    .dog5 {
+        width: 15vw;
+        height: 17vw;
+        bottom: 12vw;
+        left: 3vw;
+    }
+    .dog6 {
+        width: 7vw;
+        height: 11vw;
+        top: 3.5vw;
+        right: 49vw;
+    }
+    .dog7 {
+        width: 4.5vw;
+        height: 11vw;
+        top: 41vw;
+        right: 6.5vw;
+    }
+    footer{
+        height: auto;
+    }
+    .socials img {
+        top: 3vw;
+    }
+    .tg {
+        width: 5vw;
+    }
+    .wt {
+        width: 5vw;
+    }
+    .alo {
+        left: 82vw;
+        bottom: 9vw;
+        font-size: 1.8vw;
+        width: 15vw;
+        height: 3.5vw;
+    }
+    .phone {
+        width: 6vw;
+        bottom: 4.5vw;
+        right: 8vw;
+    }
+    .copy {
+        font-size: 1.5vw;
+        top: 4.5vw;
+    }
+}
+
+/* ===== АДАПТИВ ДЛЯ 820px ===== */
+@media (max-width: 820px) {
+    .paw-container {
+        bottom: 35vh;
+        left: 20vw;
+        gap: 10px;
+    }
+    .paw1, .paw2, .paw3, .paw4 {
+        width: 40px;
+        height: auto;
+    }
+    .paw3 {
+        margin-bottom: 12vw;
+    }
+    .paw4 {
+        margin-bottom: 12vw;
+    }
+    @keyframes runDiagonal {
+        0% {
+            transform: translate(0px, 0px) rotate(-20deg);
+        }
+        50% {
+            transform: translate(80px, -65px) rotate(-25deg);
+        }
+        100% {
+            transform: translate(160px, -130px) rotate(0deg);
+        }
+    }
+    .burger{
+        top: 10px;
+    }
+    .burger span {
+        width: 60px;
+        height: 4px;
+    }
+    #nav {
+        width: 280px;
+        padding: 70px 25px 25px;
+    }
+    #nav a button {
+        font-size: 4vw !important;
+        padding: 14px;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "d1"
+        "stan1"
+        "stan2"
+        "d2"
+        "komf1"
+        "komf2"
+        "d3"
+        "vip1" 
+        "vip2"
+        "d4" 
+        "d5";
+        top: 26vw;
+        gap: 3vw;
+    }
+
+    h1{
+        margin-top: 7.5vw;
+        font-size: 4.5vw;
+        text-align: center;
+    }
+    .opis{
+        top: 17vw;
+        font-size: 3vw;
+        width: 50vw;
+        left: 24vw;
+    }    
+    .d1, .d2, .d3{
+        font-size: 3.5vw;
+    }
+    .d1{
+        right: 27vw;
+    }
+    .d2{
+        right: 27vw;
+    }
+    .d3{
+        right: 32vw;
+    }
+    img{
+        width: 45vw;
+    }
+    .gaf{
+        top: 174vw;
+        width: 20vw;
+        height: 23vw;
+        left: 21vw;
+    }
+    .dog6{
+        width: 16vw;
+        height: 16vw;
+        top: 4vw;
+        right: 18vw;
+    }
+    .dog7{
+        width: 7vw;
+        height: 18vw;
+        top: 116vw;
+        right: 25vw;
+    }
+    .dog5{
+        width: 25vw;
+        height: 25vw;
+        position: absolute;
+        bottom: 27vw;
+        left: 3vw;
+    }
+    .sviz, .bron{
+        font-size: 3.5vw;
+        height: 5vw;
+        width: 35vw;
+        /* margin-left: 20vw; */
+        margin: 0 auto;
+    }
+    footer{
+        position: relative;
+        width: 100%;
+        height: 33vw;
+        top: 48vw;
+        background: rgba(105, 105, 105, 0.47);
+    }
+    .socials img {
+        top: 15vw;
+    }
+    .tg {
+        width: 8vw;
+    }
+    .wt {
+        width: 8vw;
+    }
+    .alo {
+        left: 68vw;
+        bottom: 18vw;
+        /* margin-top: 8vw; */
+        font-size: 3.5vw;
+        width: 30vw;
+        height: 4vw;
+    }
+    .phone {
+        width: 8vw;
+        bottom: 7vw;
+        right: 14vw;
+    }
+    .copy {
+        font-size: 2.5vw;
+        top: 15vw;
+    }
+}
+
+/* ===== АДАПТИВ ДЛЯ 480px ===== */
+@media (max-width: 480px) {
+    .paw-container {
+        bottom: 40vh;
+        left: 15vw;
+        gap: 8px;
+    }
+    .paw1, .paw2, .paw3, .paw4 {
+        width: 30px;
+        height: auto;
+    }
+    .paw1 {
+        margin-left: 2vw;
+    }
+    .paw2 {
+        margin-left: 3vw;
+    }
+    .paw3 {
+        margin-left: 2vw;
+        margin-bottom: 15vw;
+    }
+    .paw4 {
+        margin-left: 3vw;
+        margin-bottom: 15vw;
+    }
+    @keyframes runDiagonal {
+        0% {
+            transform: translate(0px, 0px) rotate(-20deg);
+        }
+        50% {
+            transform: translate(60px, -50px) rotate(-25deg);
+        }
+        100% {
+            transform: translate(120px, -100px) rotate(0deg);
+        }
+    }
+    .burger{
+        top: 0 !important;
+        right: 0;
+    }
+    .burger span {
+        width: 40px;
+        height: 3px;
+    }
+    #nav {
+        width: 250px;
+        padding: 60px 20px 20px;
+    }
+    #nav a button {
+        font-size: 5vw !important;
+        padding: 12px;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "d1"
+        "stan1"
+        "stan2"
+        "d2"
+        "komf1"
+        "komf2"
+        "d3"
+        "vip1" 
+        "vip2"
+        "d4" 
+        "d5";
+        top:26vw;
+        gap: 3vw;
+    }
+    h1{
+        margin-top: 10.5vw;
+        font-size: 6vw;
+        text-align: center;
+    }
+    img {
+        width: 75vw;
+    }
+    .opis{
+        top: 18vw;
+        font-size: 3.5vw;
+        width: 60vw;
+        left: 20vw;
+    }    
+    .d1, .d2, .d3{
+        font-size: 4.5vw;
+    }
+    .d1{
+        right: 18vw;
+    }
+    .d2{
+        right: 19.4vw;
+    }
+    .d3{
+        right: 25.4vw;
+    }
+    .gaf{
+        top: 273vw;
+        width: 28vw;
+        height: 28vw;
+        left: 6vw;
+    }
+    .dog6{
+        width: 18vw;
+        height: 18vw;
+        top: 7.5vw;
+        right: 5vw;
+    }
+    .dog7{
+        width: 20vw;
+        height: 20vw;
+        top: 182vw;
+        right: 10vw;
+    }
+    .dog5{
+        width: 30vw;
+        height: 30vw;
+        position: absolute;
+        bottom: 36vw;
+        left: 3vw;
+    }
+    .sviz, .bron{
+        font-size: 4.5vw;
+        height: 8vw;
+        width: 45vw;
+    }
+    footer{
+        position: relative;
+        width: 100%;
+        height: 45vw;
+        top: 60vw;
+        background: rgba(105, 105, 105, 0.47);
+    }
+    .socials img {
+        top: 20vw;
+    }
+    .tg {
+        width: 10vw;
+    }
+    .wt {
+        width: 10vw;
+    }
+    .alo {
+        left:64vw;
+        bottom: 25vw;
+        margin-top: 10vw;
+        font-size: 4.5vw;
+        width: 35vw;
+        height: 5vw;
+    }
+    .phone {
+        width: 10vw;
+        bottom: 8.5vw;
+        right: 17vw;
+    }
+    .copy {
+        font-size: 3.5vw;
+        top: 21vw !important;
+    }
+}
