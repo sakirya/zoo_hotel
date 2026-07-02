@@ -425,9 +425,6 @@ footer {
 
 }
 /* ===== FIX ДЛЯ IOS ===== */
-* {
-    -webkit-tap-highlight-color: transparent;
-}
 
 a, button, input, select, textarea {
     -webkit-appearance: none;
