@@ -15,7 +15,7 @@
 }
 /* ===== ТОЛЬКО ДЛЯ IOS ===== */
 @supports (-webkit-touch-callout: none) {
-    , input, select, textarea {
+    input, select, textarea {
         -webkit-appearance: none !important;
         appearance: none !important;
         background: #D9D9D9 !important;
@@ -32,7 +32,7 @@
     }
 }
 
-a{
+a, p{
      color: black;
     text-decoration:none;
 }
