@@ -760,7 +760,7 @@ footer {
     #nav a button {
         font-size: 4vw !important;
         padding: 14px;
-        background: transparent !important;
+        background: none !important;        
         border: none !important;
         box-shadow: none !important;
     }
@@ -958,7 +958,7 @@ footer {
     #nav a button {
         font-size: 5vw !important;
         padding: 12px;
-        background: transparent !important;
+        background: none !important;
         border: none !important;
         box-shadow: none !important;
     }
