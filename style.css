@@ -153,6 +153,7 @@ a{
     font-family: "Jura bold";
     font-weight: bold;
     margin-top: 2vw;
+    color: black;
 
 }
 #nav a button:hover {
@@ -282,6 +283,7 @@ h2 {
     justify-content: center;
     gap: 3vw;
     margin: 1.5vw 0;
+    color: black;
 }
 .buttons button {
     border: none;
@@ -309,6 +311,7 @@ h2 {
     text-align: center; 
     margin-top: 0.2vw;
     font-family: "Jura";
+    color: black;
 }
 
 /* ===== КОТ И СОБАКА С ДВИЖЕНИЕМ ===== */
